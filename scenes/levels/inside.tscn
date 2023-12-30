@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://b81nhdgquy47o"]
+
+[ext_resource type="PackedScene" uid="uid://cftsgb0mfy8c" path="res://scenes/levels/level.tscn" id="1_8j4xg"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_4lrv7"]
+[ext_resource type="Texture2D" uid="uid://clohgvjix2rl" path="res://graphics/ground/dirt.png" id="2_uaqel"]
+[ext_resource type="TileSet" uid="uid://bejpj582c4l1v" path="res://scenes/levels/house.tres" id="2_uslo2"]
+[ext_resource type="PackedScene" uid="uid://eljfjapr8cj0" path="res://scenes/objects/wall_light.tscn" id="4_1vf0t"]
+[ext_resource type="PackedScene" uid="uid://cqg50k6loo247" path="res://scenes/objects/light_fan_animation.tscn" id="4_dlehg"]
+[ext_resource type="Texture2D" uid="uid://qxlaa0vl6ivv" path="res://graphics/lights/overlays/infrastructure.png" id="5_26nx0"]
+[ext_resource type="PackedScene" uid="uid://cxbg4i6fj1lpq" path="res://scenes/objects/simple_light.tscn" id="5_bl6yn"]
+[ext_resource type="Texture2D" uid="uid://mw61cmrgnfof" path="res://graphics/lights/textures/circle.png" id="6_dtcin"]
+[ext_resource type="Texture2D" uid="uid://dkclsltk7l47h" path="res://graphics/lights/overlays/hole.png" id="6_lcrmj"]
+[ext_resource type="Texture2D" uid="uid://dfs45ci5vnysm" path="res://graphics/lights/overlays/lattice.png" id="7_yd5pp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie85p"]
+size = Vector2(353, 736)
+
+[node name="Inside" instance=ExtResource("1_8j4xg")]
+script = ExtResource("2_4lrv7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
+texture_repeat = 2
+position = Vector2(1883, 466)
+scale = Vector2(1.54514, 2.09867)
+texture = ExtResource("2_uaqel")
+region_enabled = true
+region_rect = Rect2(1318.89, 559.26, 7000, 4500)
+
+[node name="TileMap" type="TileMap" parent="Ground" index="1"]
+tile_set = ExtResource("2_uslo2")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(0, 65536, 1, 131081, 65536, 1, 131080, 65536, 1, 131079, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 65540, 65536, 1, 65539, 65536, 1, 2, 65536, 1, 1, 65536, 1, 65536, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 327680, 65536, 1, -65538, 65536, 1, -2, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, 196606, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, -65537, 65536, 1, -1, 65536, 1, 65535, 65536, 1, 131071, 65536, 1, 196607, 65536, 1, 262143, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, -131071, 65536, 1, -65535, 65536, 1, 65537, 65536, 1, 196609, 65536, 1, 262145, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, -131069, 65536, 1, -65533, 65536, 1, 3, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, -131068, 65536, 1, -65532, 65536, 1, 4, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, -196608, 65536, 1, -196607, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 131077, 65536, 1, -196606, 65536, 1, -196605, 65536, 1, -196604, 65536, 1, -196603, 65536, 1, -196602, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, -131066, 65536, 1, -65530, 65536, 1, 6, 65536, 1, 131078, 65536, 1, 196613, 65536, 1, 262149, 65536, 1, 196614, 65536, 1, 262150, 65536, 1, 393214, 65536, 1, 327681, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 327687, 65536, 1, 327688, 65536, 1, 327689, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, -196601, 65536, 1, -131065, 65536, 1, -65529, 65536, 1, 7, 65536, 1, 65543, 65536, 1, -196600, 65536, 1, -131064, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, -196599, 65536, 1, -131063, 65536, 1, -65527, 65536, 1, 9, 65536, 1, 65545, 65536, 1, -131073, 65536, 1, -131074, 65536, 1, -196598, 65536, 1, -196597, 65536, 1, -131061, 65536, 1, -131062, 65536, 1, -131060, 65536, 1, -196596, 65536, 1, 458749, 0, 2, -196611, 0, 0, 393226, 131072, 2, 458750, 65536, 2, 458751, 65536, 2, 393216, 65536, 2, 393217, 65536, 2, 393218, 65536, 2, 393219, 65536, 2, 393220, 65536, 2, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 393224, 65536, 2, 393225, 65536, 2, -131075, 0, 1, -65539, 0, 1, -3, 0, 1, 65533, 0, 1, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 327677, 0, 1, 393213, 0, 1, -196610, 65536, 0, -196609, 65536, 0, -262144, 65536, 0, -262143, 65536, 0, -262142, 65536, 0, -262141, 65536, 0, -262140, 65536, 0, -262139, 65536, 0, -262138, 65536, 0, -262137, 65536, 0, -262136, 65536, 0, -262135, 65536, 0, -262134, 65536, 0, -262133, 65536, 0, -262132, 131072, 0, 10, 131072, 1, 65546, 131072, 1, 131082, 131072, 1, 196618, 131072, 1, 262154, 131072, 1, 327690, 131072, 1, -65526, 0, 4, -65525, 65536, 2, -65524, 131072, 2)
+layer_1/name = "Outer Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-65524, 327680, 2, -262132, 327680, 0, -65525, 262144, 2, -65526, 196608, 0, 10, 196608, 1, -131060, 393216, 0, -196596, 393216, 1, 65546, 327680, 1, 131082, 327680, 1, 196618, 327680, 1, 262154, 327680, 1, 327690, 327680, 1, 393226, 327680, 2, 393223, 262144, 2, 393224, 262144, 2, 393225, 262144, 2, 393216, 262144, 2, 393217, 262144, 2, 393218, 262144, 2, 393219, 262144, 2, 393220, 262144, 2, 393221, 262144, 2, 393222, 262144, 2, 458750, 262144, 2, 458751, 262144, 2, 458749, 196608, 2, -131075, 196608, 1, -65539, 196608, 1, -3, 196608, 1, 65533, 196608, 1, 131069, 196608, 1, 196605, 196608, 1, 262141, 196608, 1, 327677, 196608, 1, 393213, 196608, 1, -196611, 196608, 0, -196610, 262144, 0, -196609, 262144, 0, -262144, 262144, 0, -262143, 262144, 0, -262142, 262144, 0, -262141, 262144, 0, -262140, 262144, 0, -262139, 262144, 0, -262138, 262144, 0, -262137, 262144, 0, -262136, 262144, 0, -262135, 262144, 0, -262134, 262144, 0, -262133, 262144, 0)
+layer_2/name = "Inner Walls"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(393219, 327680, 8, 327683, 65536, 6, 262147, 65536, 6, 196611, 65536, 6, 131075, 0, 7, 131076, 0, 6, 131077, 0, 6, 131082, 393216, 7, 131081, 0, 6, 131078, 393216, 7, 131080, 262144, 7, 458751, 262144, 7)
+
+[node name="WallLight" parent="Ground" index="2" instance=ExtResource("4_1vf0t")]
+position = Vector2(175, 2436)
+
+[node name="WallLight2" parent="Ground" index="3" instance=ExtResource("4_1vf0t")]
+position = Vector2(3968, 370)
+rotation = -1.55796
+
+[node name="SimpleLight" parent="Ground" index="4" instance=ExtResource("5_bl6yn")]
+position = Vector2(4107, -1291)
+
+[node name="SimpleLight2" parent="Ground" index="5" instance=ExtResource("5_bl6yn")]
+position = Vector2(559, -1290)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(4478, -754)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
+texture = ExtResource("6_dtcin")
+texture_scale = 3.0
+
+[node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_dlehg")]
+position = Vector2(4203, -781)
+
+[node name="LightFanAnimation2" parent="Lights" index="1" instance=ExtResource("4_dlehg")]
+position = Vector2(3026, -741)
+
+[node name="LightFanAnimation3" parent="Lights" index="2" instance=ExtResource("4_dlehg")]
+position = Vector2(1968, -730)
+
+[node name="Infrastructure" type="Sprite2D" parent="Lights" index="3"]
+modulate = Color(1, 1, 1, 0.101961)
+position = Vector2(2941, 553)
+scale = Vector2(2.944, 6.77034)
+texture = ExtResource("5_26nx0")
+
+[node name="Hole" type="Sprite2D" parent="Lights" index="4"]
+modulate = Color(1, 1, 1, 0.0941176)
+self_modulate = Color(0.952941, 0.372549, 0.34902, 1)
+position = Vector2(87, -113)
+scale = Vector2(3.01046, 3.13229)
+texture = ExtResource("6_lcrmj")
+
+[node name="Lattice" type="Sprite2D" parent="Lights" index="5"]
+modulate = Color(1, 1, 1, 0.0941176)
+self_modulate = Color(0.952941, 0.372549, 0.34902, 1)
+position = Vector2(1694, 822)
+scale = Vector2(2.04651, 1.52147)
+texture = ExtResource("7_yd5pp")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
+color = Color(0.478431, 0.478431, 0.478431, 1)
+blend_mode = 1
+
+[node name="ExitGateArea" type="Area2D" parent="." index="5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(4773.5, -786)
+shape = SubResource("RectangleShape2D_ie85p")
+
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
