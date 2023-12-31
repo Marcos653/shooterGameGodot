@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://b81nhdgquy47o"]
+[gd_scene load_steps=14 format=3 uid="uid://b81nhdgquy47o"]
 
 [ext_resource type="PackedScene" uid="uid://cftsgb0mfy8c" path="res://scenes/levels/level.tscn" id="1_8j4xg"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_4lrv7"]
-[ext_resource type="Texture2D" uid="uid://clohgvjix2rl" path="res://graphics/ground/dirt.png" id="2_uaqel"]
 [ext_resource type="TileSet" uid="uid://bejpj582c4l1v" path="res://scenes/levels/house.tres" id="2_uslo2"]
+[ext_resource type="Texture2D" uid="uid://clohgvjix2rl" path="res://graphics/ground/dirt.png" id="3_g1m0u"]
 [ext_resource type="PackedScene" uid="uid://eljfjapr8cj0" path="res://scenes/objects/wall_light.tscn" id="4_1vf0t"]
 [ext_resource type="PackedScene" uid="uid://cqg50k6loo247" path="res://scenes/objects/light_fan_animation.tscn" id="4_dlehg"]
-[ext_resource type="Texture2D" uid="uid://qxlaa0vl6ivv" path="res://graphics/lights/overlays/infrastructure.png" id="5_26nx0"]
 [ext_resource type="PackedScene" uid="uid://cxbg4i6fj1lpq" path="res://scenes/objects/simple_light.tscn" id="5_bl6yn"]
-[ext_resource type="Texture2D" uid="uid://mw61cmrgnfof" path="res://graphics/lights/textures/circle.png" id="6_dtcin"]
-[ext_resource type="Texture2D" uid="uid://dkclsltk7l47h" path="res://graphics/lights/overlays/hole.png" id="6_lcrmj"]
-[ext_resource type="Texture2D" uid="uid://dfs45ci5vnysm" path="res://graphics/lights/overlays/lattice.png" id="7_yd5pp"]
+[ext_resource type="Texture2D" uid="uid://mw61cmrgnfof" path="res://graphics/lights/textures/circle.png" id="7_i65we"]
+[ext_resource type="Texture2D" uid="uid://qxlaa0vl6ivv" path="res://graphics/lights/overlays/infrastructure.png" id="10_um00p"]
+[ext_resource type="Texture2D" uid="uid://dkclsltk7l47h" path="res://graphics/lights/overlays/hole.png" id="11_uq0kx"]
+[ext_resource type="Texture2D" uid="uid://dfs45ci5vnysm" path="res://graphics/lights/overlays/lattice.png" id="12_5ehjf"]
+[ext_resource type="PackedScene" uid="uid://bc27lrpke3kll" path="res://scenes/items/item.tscn" id="12_6pcyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ie85p"]
 size = Vector2(353, 736)
@@ -22,7 +23,7 @@ script = ExtResource("2_4lrv7")
 texture_repeat = 2
 position = Vector2(1883, 466)
 scale = Vector2(1.54514, 2.09867)
-texture = ExtResource("2_uaqel")
+texture = ExtResource("3_g1m0u")
 region_enabled = true
 region_rect = Rect2(1318.89, 559.26, 7000, 4500)
 
@@ -59,13 +60,27 @@ position = Vector2(4107, -1291)
 [node name="SimpleLight2" parent="Ground" index="5" instance=ExtResource("5_bl6yn")]
 position = Vector2(559, -1290)
 
-[node name="Player" parent="." index="2"]
+[node name="Player" parent="." index="3"]
 position = Vector2(4478, -754)
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
-texture = ExtResource("6_dtcin")
+texture = ExtResource("7_i65we")
 texture_scale = 3.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
+visible = false
+color = Color(0.478431, 0.478431, 0.478431, 1)
+blend_mode = 1
+
+[node name="ExitGateArea" type="Area2D" parent="." index="5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(4773.5, -786)
+shape = SubResource("RectangleShape2D_ie85p")
+
+[node name="Item" parent="ExitGateArea" index="1" instance=ExtResource("12_6pcyp")]
+position = Vector2(3656, -877)
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_dlehg")]
 position = Vector2(4203, -781)
@@ -80,30 +95,20 @@ position = Vector2(1968, -730)
 modulate = Color(1, 1, 1, 0.101961)
 position = Vector2(2941, 553)
 scale = Vector2(2.944, 6.77034)
-texture = ExtResource("5_26nx0")
+texture = ExtResource("10_um00p")
 
 [node name="Hole" type="Sprite2D" parent="Lights" index="4"]
 modulate = Color(1, 1, 1, 0.0941176)
 self_modulate = Color(0.952941, 0.372549, 0.34902, 1)
 position = Vector2(87, -113)
 scale = Vector2(3.01046, 3.13229)
-texture = ExtResource("6_lcrmj")
+texture = ExtResource("11_uq0kx")
 
 [node name="Lattice" type="Sprite2D" parent="Lights" index="5"]
 modulate = Color(1, 1, 1, 0.0941176)
 self_modulate = Color(0.952941, 0.372549, 0.34902, 1)
 position = Vector2(1694, 822)
 scale = Vector2(2.04651, 1.52147)
-texture = ExtResource("7_yd5pp")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
-color = Color(0.478431, 0.478431, 0.478431, 1)
-blend_mode = 1
-
-[node name="ExitGateArea" type="Area2D" parent="." index="5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
-position = Vector2(4773.5, -786)
-shape = SubResource("RectangleShape2D_ie85p")
+texture = ExtResource("12_5ehjf")
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

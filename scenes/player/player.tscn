@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://byi1j1piprugr"]
 
-[ext_resource type="Texture2D" uid="uid://cpeijxybcgir7" path="res://graphics/player/player.png" id="1_71fa1"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jkyf5"]
-[ext_resource type="Texture2D" uid="uid://c3lo4b7o8r5ja" path="res://graphics/decals/white.png" id="3_y8b2a"]
+[ext_resource type="Texture2D" uid="uid://cpeijxybcgir7" path="res://graphics/player/player.png" id="2_ky41i"]
+[ext_resource type="Texture2D" uid="uid://c3lo4b7o8r5ja" path="res://graphics/decals/white.png" id="3_s2do6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am0uf"]
 radius = 64.0312
@@ -37,7 +37,7 @@ script = ExtResource("1_jkyf5")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
 position = Vector2(0, -38)
-texture = ExtResource("1_71fa1")
+texture = ExtResource("2_ky41i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_am0uf")
@@ -76,7 +76,7 @@ position = Vector2(25, -128)
 position = Vector2(17, -133)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_kntou")
-texture = ExtResource("3_y8b2a")
+texture = ExtResource("3_s2do6")
 lifetime = 0.2
 one_shot = true
 

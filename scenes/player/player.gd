@@ -37,7 +37,8 @@ func _process(_delta):
 		laser.emit(selected_laser.global_position, player_direction)
 
 	# grenade shooting input
-	if Input.is_action_just_pressed("secondary action") and can_grenade:
+	if Input.is_action_just_pressed("secondary action") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		# randomly selected a marker 2D for the laser
 		var grenade_markers = $GrenadeStartPositions.get_children()
 		var selected_grenade = grenade_markers[randi() % grenade_markers.size()]

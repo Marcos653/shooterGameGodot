@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/user interface/ui.gd" id="1_d2jga"]
 [ext_resource type="Theme" uid="uid://dryyet6xu2ahf" path="res://scenes/user interface/main_theme.tres" id="1_e10wy"]
-[ext_resource type="Texture2D" uid="uid://c2ptfjmvj5b8n" path="res://graphics/ui/bullet.png" id="1_n41x2"]
-[ext_resource type="Texture2D" uid="uid://dchbsdu6vg5k6" path="res://graphics/ui/grenade.png" id="2_1630q"]
-[ext_resource type="Texture2D" uid="uid://drvjppk8bsrm0" path="res://graphics/ui/progress_bar/bg.png" id="4_agcgg"]
-[ext_resource type="Texture2D" uid="uid://c6tkujcf7t2nk" path="res://graphics/ui/progress_bar/over.png" id="5_6kyvr"]
-[ext_resource type="Texture2D" uid="uid://c8pgv6tpk6c00" path="res://graphics/ui/progress_bar/progress.png" id="6_meshi"]
+[ext_resource type="Texture2D" uid="uid://c2ptfjmvj5b8n" path="res://graphics/ui/bullet.png" id="3_d6vi1"]
+[ext_resource type="Texture2D" uid="uid://dchbsdu6vg5k6" path="res://graphics/ui/grenade.png" id="4_3e8gs"]
+[ext_resource type="Texture2D" uid="uid://drvjppk8bsrm0" path="res://graphics/ui/progress_bar/bg.png" id="5_q7k10"]
+[ext_resource type="Texture2D" uid="uid://c6tkujcf7t2nk" path="res://graphics/ui/progress_bar/over.png" id="6_7ioaw"]
+[ext_resource type="Texture2D" uid="uid://c8pgv6tpk6c00" path="res://graphics/ui/progress_bar/progress.png" id="7_rkpsw"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_d2jga")
@@ -30,13 +30,12 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_e10wy")
-text = "20
-"
+text = "20"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_n41x2")
+texture = ExtResource("3_d6vi1")
 expand_mode = 4
 
 [node name="GrenadeCounter" type="Control" parent="."]
@@ -65,7 +64,7 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="GrenadeCounter/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_1630q")
+texture = ExtResource("4_3e8gs")
 expand_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -83,7 +82,6 @@ theme_override_constants/margin_bottom = 30
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
 layout_mode = 2
-value = 20.0
-texture_under = ExtResource("4_agcgg")
-texture_over = ExtResource("5_6kyvr")
-texture_progress = ExtResource("6_meshi")
+texture_under = ExtResource("5_q7k10")
+texture_over = ExtResource("6_7ioaw")
+texture_progress = ExtResource("7_rkpsw")
